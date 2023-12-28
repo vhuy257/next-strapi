@@ -12,21 +12,15 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "main_slider": {
-      "type": "media",
-      "multiple": true,
-      "required": true,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "restaurant": {
+    "restaurants": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::restaurant.restaurant"
+    },
+    "home_page_slides": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::home-page-slide.home-page-slide"
     }
   }
 }

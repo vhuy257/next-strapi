@@ -816,11 +816,15 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    main_slider: Attribute.Media & Attribute.Required;
-    restaurant: Attribute.Relation<
+    restaurants: Attribute.Relation<
       'api::home-page.home-page',
-      'oneToOne',
+      'oneToMany',
       'api::restaurant.restaurant'
+    >;
+    home_page_slides: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToMany',
+      'api::home-page-slide.home-page-slide'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -833,6 +837,39 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::home-page.home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHomePageSlideHomePageSlide extends Schema.CollectionType {
+  collectionName: 'home_page_slides';
+  info: {
+    singularName: 'home-page-slide';
+    pluralName: 'home-page-slides';
+    displayName: 'Home page slide';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image_slide: Attribute.Media & Attribute.Required;
+    title: Attribute.String;
+    desc: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::home-page-slide.home-page-slide',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::home-page-slide.home-page-slide',
       'oneToOne',
       'admin::user'
     > &
@@ -897,6 +934,7 @@ declare module '@strapi/types' {
       'plugin::i18n.locale': PluginI18NLocale;
       'api::category.category': ApiCategoryCategory;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::home-page-slide.home-page-slide': ApiHomePageSlideHomePageSlide;
       'api::restaurant.restaurant': ApiRestaurantRestaurant;
     }
   }

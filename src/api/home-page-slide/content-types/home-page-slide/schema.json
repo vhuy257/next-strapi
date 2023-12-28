@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "home_page_slides",
+  "info": {
+    "singularName": "home-page-slide",
+    "pluralName": "home-page-slides",
+    "displayName": "Home page slide",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image_slide": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "text"
+    }
+  }
+}

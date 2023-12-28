@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_main_slider_main_sliders",
+  "info": {
+    "displayName": "Main Slider",
+    "icon": "landscape",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "home_page_slides": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::home-page-slide.home-page-slide"
+    }
+  }
+}
