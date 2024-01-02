@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_brunch_about_uses",
+  "info": {
+    "displayName": "about-us",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "main_image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}

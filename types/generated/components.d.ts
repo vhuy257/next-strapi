@@ -1,5 +1,18 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface BrunchAboutUs extends Schema.Component {
+  collectionName: 'components_brunch_about_uses';
+  info: {
+    displayName: 'about-us';
+    description: '';
+  };
+  attributes: {
+    main_image: Attribute.Media;
+    title: Attribute.String;
+    description: Attribute.RichText;
+  };
+}
+
 export interface BrunchTestComponent extends Schema.Component {
   collectionName: 'components_brunch_test_components';
   info: {
@@ -32,6 +45,7 @@ export interface MainSliderMainSlider extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'brunch.about-us': BrunchAboutUs;
       'brunch.test-component': BrunchTestComponent;
       'main-slider.main-slider': MainSliderMainSlider;
     }

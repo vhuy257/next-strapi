@@ -21,6 +21,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::home-page-slide.home-page-slide"
+    },
+    "about_us_home_page": {
+      "displayName": "about-us",
+      "type": "component",
+      "repeatable": false,
+      "component": "brunch.about-us"
     }
   }
 }
