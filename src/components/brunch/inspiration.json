@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_brunch_inspirations",
+  "info": {
+    "displayName": "inspiration",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "swiper_inspiration": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "button_gallery": {
+      "type": "string"
+    }
+  }
+}

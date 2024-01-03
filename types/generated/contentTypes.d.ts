@@ -827,6 +827,7 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
       'api::home-page-slide.home-page-slide'
     >;
     about_us_home_page: Attribute.Component<'brunch.about-us'>;
+    origin_inspiration: Attribute.Component<'brunch.inspiration'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

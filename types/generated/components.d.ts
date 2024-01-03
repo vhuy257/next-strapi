@@ -10,19 +10,23 @@ export interface BrunchAboutUs extends Schema.Component {
     main_image: Attribute.Media;
     title: Attribute.String;
     description: Attribute.RichText;
+    image_1: Attribute.Media;
+    image_2: Attribute.Media;
+    image_3: Attribute.Media;
   };
 }
 
-export interface BrunchTestComponent extends Schema.Component {
-  collectionName: 'components_brunch_test_components';
+export interface BrunchInspiration extends Schema.Component {
+  collectionName: 'components_brunch_inspirations';
   info: {
-    displayName: 'TestComponent';
-    icon: 'alien';
+    displayName: 'inspiration';
+    description: '';
   };
   attributes: {
-    test: Attribute.String;
-    pass: Attribute.Password;
-    dropdown: Attribute.Enumeration<['morning', 'evening', 'lunch']>;
+    title: Attribute.String;
+    swiper_inspiration: Attribute.Media;
+    description: Attribute.RichText;
+    button_gallery: Attribute.String;
   };
 }
 
@@ -46,7 +50,7 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'brunch.about-us': BrunchAboutUs;
-      'brunch.test-component': BrunchTestComponent;
+      'brunch.inspiration': BrunchInspiration;
       'main-slider.main-slider': MainSliderMainSlider;
     }
   }

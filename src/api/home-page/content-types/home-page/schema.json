@@ -27,6 +27,12 @@
       "type": "component",
       "repeatable": false,
       "component": "brunch.about-us"
+    },
+    "origin_inspiration": {
+      "displayName": "inspiration",
+      "type": "component",
+      "repeatable": false,
+      "component": "brunch.inspiration"
     }
   }
 }
