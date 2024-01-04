@@ -48,6 +48,22 @@ export interface BrunchMenu extends Schema.Component {
   };
 }
 
+export interface BrunchReservations extends Schema.Component {
+  collectionName: 'components_brunch_reservations';
+  info: {
+    displayName: 'Reservations';
+    icon: 'archive';
+  };
+  attributes: {
+    title: Attribute.String;
+    bg_image: Attribute.Media;
+    btn_text: Attribute.String;
+    image_1: Attribute.Media;
+    image_2: Attribute.Media;
+    image_3: Attribute.Media;
+  };
+}
+
 export interface MainSliderMainSlider extends Schema.Component {
   collectionName: 'components_main_slider_main_sliders';
   info: {
@@ -70,6 +86,7 @@ declare module '@strapi/types' {
       'brunch.about-us': BrunchAboutUs;
       'brunch.inspiration': BrunchInspiration;
       'brunch.menu': BrunchMenu;
+      'brunch.reservations': BrunchReservations;
       'main-slider.main-slider': MainSliderMainSlider;
     }
   }

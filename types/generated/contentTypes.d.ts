@@ -829,6 +829,7 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
     about_us_home_page: Attribute.Component<'brunch.about-us'>;
     origin_inspiration: Attribute.Component<'brunch.inspiration'>;
     menu: Attribute.Component<'brunch.menu'>;
+    rerservations: Attribute.Component<'brunch.reservations'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
