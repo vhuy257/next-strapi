@@ -30,6 +30,24 @@ export interface BrunchInspiration extends Schema.Component {
   };
 }
 
+export interface BrunchMenu extends Schema.Component {
+  collectionName: 'components_brunch_menus';
+  info: {
+    displayName: 'menu';
+    description: '';
+  };
+  attributes: {
+    menu_image: Attribute.Media;
+    bg_image_1: Attribute.Media;
+    bg_image_2: Attribute.Media;
+    menu_items: Attribute.Relation<
+      'brunch.menu',
+      'oneToMany',
+      'api::menu-item.menu-item'
+    >;
+  };
+}
+
 export interface MainSliderMainSlider extends Schema.Component {
   collectionName: 'components_main_slider_main_sliders';
   info: {
@@ -51,6 +69,7 @@ declare module '@strapi/types' {
     export interface Components {
       'brunch.about-us': BrunchAboutUs;
       'brunch.inspiration': BrunchInspiration;
+      'brunch.menu': BrunchMenu;
       'main-slider.main-slider': MainSliderMainSlider;
     }
   }

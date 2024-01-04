@@ -828,6 +828,7 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
     >;
     about_us_home_page: Attribute.Component<'brunch.about-us'>;
     origin_inspiration: Attribute.Component<'brunch.inspiration'>;
+    menu: Attribute.Component<'brunch.menu'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -872,6 +873,38 @@ export interface ApiHomePageSlideHomePageSlide extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::home-page-slide.home-page-slide',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMenuItemMenuItem extends Schema.CollectionType {
+  collectionName: 'menu_items';
+  info: {
+    singularName: 'menu-item';
+    pluralName: 'menu-items';
+    displayName: 'menu item';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.RichText;
+    price: Attribute.Decimal;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::menu-item.menu-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::menu-item.menu-item',
       'oneToOne',
       'admin::user'
     > &
@@ -937,6 +970,7 @@ declare module '@strapi/types' {
       'api::category.category': ApiCategoryCategory;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::home-page-slide.home-page-slide': ApiHomePageSlideHomePageSlide;
+      'api::menu-item.menu-item': ApiMenuItemMenuItem;
       'api::restaurant.restaurant': ApiRestaurantRestaurant;
     }
   }
