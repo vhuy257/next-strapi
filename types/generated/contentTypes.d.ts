@@ -830,6 +830,15 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
     origin_inspiration: Attribute.Component<'brunch.inspiration'>;
     menu: Attribute.Component<'brunch.menu'>;
     rerservations: Attribute.Component<'brunch.reservations'>;
+    get_in_touch_phone: Attribute.String;
+    get_in_touch_email: Attribute.String;
+    find_us_address: Attribute.String;
+    find_us_country: Attribute.String;
+    testimonials: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToMany',
+      'api::testimonial.testimonial'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -950,6 +959,38 @@ export interface ApiRestaurantRestaurant extends Schema.CollectionType {
   };
 }
 
+export interface ApiTestimonialTestimonial extends Schema.CollectionType {
+  collectionName: 'testimonials';
+  info: {
+    singularName: 'testimonial';
+    pluralName: 'testimonials';
+    displayName: 'testimonial';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    testimonial: Attribute.String;
+    customer_name: Attribute.String;
+    testimonial_image: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::testimonial.testimonial',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::testimonial.testimonial',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -973,6 +1014,7 @@ declare module '@strapi/types' {
       'api::home-page-slide.home-page-slide': ApiHomePageSlideHomePageSlide;
       'api::menu-item.menu-item': ApiMenuItemMenuItem;
       'api::restaurant.restaurant': ApiRestaurantRestaurant;
+      'api::testimonial.testimonial': ApiTestimonialTestimonial;
     }
   }
 }

@@ -53,6 +53,7 @@ export interface BrunchReservations extends Schema.Component {
   info: {
     displayName: 'Reservations';
     icon: 'archive';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
