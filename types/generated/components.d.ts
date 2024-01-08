@@ -3,13 +3,12 @@ import type { Schema, Attribute } from '@strapi/strapi';
 export interface BrunchAboutUs extends Schema.Component {
   collectionName: 'components_brunch_about_uses';
   info: {
-    displayName: 'about-us';
-    description: '';
+    displayName: 'About us';
   };
   attributes: {
-    main_image: Attribute.Media;
     title: Attribute.String;
-    description: Attribute.RichText;
+    description: Attribute.Blocks;
+    main_image: Attribute.Media;
     image_1: Attribute.Media;
     image_2: Attribute.Media;
     image_3: Attribute.Media;
@@ -27,6 +26,33 @@ export interface BrunchInspiration extends Schema.Component {
     swiper_inspiration: Attribute.Media;
     description: Attribute.RichText;
     button_gallery: Attribute.String;
+  };
+}
+
+export interface BrunchLogo extends Schema.Component {
+  collectionName: 'components_brunch_logos';
+  info: {
+    displayName: 'Logo';
+    description: '';
+  };
+  attributes: {
+    logo: Attribute.Media;
+  };
+}
+
+export interface BrunchMainSlider extends Schema.Component {
+  collectionName: 'components_main_slider_main_sliders';
+  info: {
+    displayName: 'Main Slider';
+    icon: 'landscape';
+    description: '';
+  };
+  attributes: {
+    home_page_slides: Attribute.Relation<
+      'brunch.main-slider',
+      'oneToMany',
+      'api::home-page-slide.home-page-slide'
+    >;
   };
 }
 
@@ -65,19 +91,16 @@ export interface BrunchReservations extends Schema.Component {
   };
 }
 
-export interface MainSliderMainSlider extends Schema.Component {
-  collectionName: 'components_main_slider_main_sliders';
+export interface BrunchSiteInfo extends Schema.Component {
+  collectionName: 'components_brunch_site_infos';
   info: {
-    displayName: 'Main Slider';
-    icon: 'landscape';
-    description: '';
+    displayName: 'Site Info';
   };
   attributes: {
-    home_page_slides: Attribute.Relation<
-      'main-slider.main-slider',
-      'oneToMany',
-      'api::home-page-slide.home-page-slide'
-    >;
+    phone: Attribute.String;
+    email: Attribute.String;
+    address: Attribute.String;
+    country: Attribute.String;
   };
 }
 
@@ -86,9 +109,11 @@ declare module '@strapi/types' {
     export interface Components {
       'brunch.about-us': BrunchAboutUs;
       'brunch.inspiration': BrunchInspiration;
+      'brunch.logo': BrunchLogo;
+      'brunch.main-slider': BrunchMainSlider;
       'brunch.menu': BrunchMenu;
       'brunch.reservations': BrunchReservations;
-      'main-slider.main-slider': MainSliderMainSlider;
+      'brunch.site-info': BrunchSiteInfo;
     }
   }
 }

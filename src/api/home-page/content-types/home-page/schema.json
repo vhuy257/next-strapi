@@ -4,7 +4,7 @@
   "info": {
     "singularName": "home-page",
     "pluralName": "home-pages",
-    "displayName": "home page",
+    "displayName": "Home page",
     "description": ""
   },
   "options": {
@@ -12,21 +12,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "restaurants": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::restaurant.restaurant"
-    },
     "home_page_slides": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::home-page-slide.home-page-slide"
-    },
-    "about_us_home_page": {
-      "displayName": "about-us",
-      "type": "component",
-      "repeatable": false,
-      "component": "brunch.about-us"
     },
     "origin_inspiration": {
       "displayName": "inspiration",
@@ -62,6 +51,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::testimonial.testimonial"
+    },
+    "about_us_home_page": {
+      "type": "component",
+      "repeatable": false,
+      "component": "brunch.about-us"
     }
   }
 }

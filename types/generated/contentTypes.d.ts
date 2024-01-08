@@ -768,35 +768,39 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiCategoryCategory extends Schema.CollectionType {
-  collectionName: 'categories';
+export interface ApiFooterFooter extends Schema.SingleType {
+  collectionName: 'footers';
   info: {
-    singularName: 'category';
-    pluralName: 'categories';
-    displayName: 'Category';
+    singularName: 'footer';
+    pluralName: 'footers';
+    displayName: 'Footer';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String & Attribute.Required & Attribute.Unique;
-    restaurants: Attribute.Relation<
-      'api::category.category',
-      'manyToMany',
-      'api::restaurant.restaurant'
+    logo: Attribute.Component<'brunch.logo'>;
+    subscribe_text: Attribute.Blocks;
+    subscribe_link: Attribute.String;
+    site_info: Attribute.Component<'brunch.site-info'>;
+    bg_image: Attribute.Media;
+    site_menus: Attribute.Relation<
+      'api::footer.footer',
+      'oneToMany',
+      'api::site-menu.site-menu'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::category.category',
+      'api::footer.footer',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::category.category',
+      'api::footer.footer',
       'oneToOne',
       'admin::user'
     > &
@@ -809,24 +813,18 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
   info: {
     singularName: 'home-page';
     pluralName: 'home-pages';
-    displayName: 'home page';
+    displayName: 'Home page';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    restaurants: Attribute.Relation<
-      'api::home-page.home-page',
-      'oneToMany',
-      'api::restaurant.restaurant'
-    >;
     home_page_slides: Attribute.Relation<
       'api::home-page.home-page',
       'oneToMany',
       'api::home-page-slide.home-page-slide'
     >;
-    about_us_home_page: Attribute.Component<'brunch.about-us'>;
     origin_inspiration: Attribute.Component<'brunch.inspiration'>;
     menu: Attribute.Component<'brunch.menu'>;
     rerservations: Attribute.Component<'brunch.reservations'>;
@@ -839,6 +837,7 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
       'oneToMany',
       'api::testimonial.testimonial'
     >;
+    about_us_home_page: Attribute.Component<'brunch.about-us'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -895,7 +894,8 @@ export interface ApiMenuItemMenuItem extends Schema.CollectionType {
   info: {
     singularName: 'menu-item';
     pluralName: 'menu-items';
-    displayName: 'menu item';
+    displayName: 'Menus item';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -922,36 +922,30 @@ export interface ApiMenuItemMenuItem extends Schema.CollectionType {
   };
 }
 
-export interface ApiRestaurantRestaurant extends Schema.CollectionType {
-  collectionName: 'restaurants';
+export interface ApiSiteMenuSiteMenu extends Schema.CollectionType {
+  collectionName: 'site_menus';
   info: {
-    singularName: 'restaurant';
-    pluralName: 'restaurants';
-    displayName: 'Restaurant';
-    description: '';
+    singularName: 'site-menu';
+    pluralName: 'site-menus';
+    displayName: 'Site menu';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    description: Attribute.Blocks & Attribute.Required;
-    name: Attribute.String & Attribute.Required & Attribute.Unique;
-    categories: Attribute.Relation<
-      'api::restaurant.restaurant',
-      'manyToMany',
-      'api::category.category'
-    >;
+    text: Attribute.String;
+    link: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::restaurant.restaurant',
+      'api::site-menu.site-menu',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::restaurant.restaurant',
+      'api::site-menu.site-menu',
       'oneToOne',
       'admin::user'
     > &
@@ -964,13 +958,14 @@ export interface ApiTestimonialTestimonial extends Schema.CollectionType {
   info: {
     singularName: 'testimonial';
     pluralName: 'testimonials';
-    displayName: 'testimonial';
+    displayName: 'Testimonial';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    testimonial: Attribute.String;
+    testimonial: Attribute.Text;
     customer_name: Attribute.String;
     testimonial_image: Attribute.Media;
     createdAt: Attribute.DateTime;
@@ -1009,11 +1004,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::category.category': ApiCategoryCategory;
+      'api::footer.footer': ApiFooterFooter;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::home-page-slide.home-page-slide': ApiHomePageSlideHomePageSlide;
       'api::menu-item.menu-item': ApiMenuItemMenuItem;
-      'api::restaurant.restaurant': ApiRestaurantRestaurant;
+      'api::site-menu.site-menu': ApiSiteMenuSiteMenu;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
     }
   }

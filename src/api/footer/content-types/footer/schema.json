@@ -1,0 +1,50 @@
+{
+  "kind": "singleType",
+  "collectionName": "footers",
+  "info": {
+    "singularName": "footer",
+    "pluralName": "footers",
+    "displayName": "Footer",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "logo": {
+      "displayName": "Logo",
+      "type": "component",
+      "repeatable": false,
+      "component": "brunch.logo"
+    },
+    "subscribe_text": {
+      "type": "blocks"
+    },
+    "subscribe_link": {
+      "type": "string"
+    },
+    "site_info": {
+      "displayName": "Site Info",
+      "type": "component",
+      "repeatable": false,
+      "component": "brunch.site-info"
+    },
+    "bg_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "site_menus": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::site-menu.site-menu"
+    }
+  }
+}

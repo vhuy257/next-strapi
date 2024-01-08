@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_brunch_site_infos",
+  "info": {
+    "displayName": "Site Info"
+  },
+  "options": {},
+  "attributes": {
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    }
+  }
+}

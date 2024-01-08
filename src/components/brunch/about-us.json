@@ -1,27 +1,25 @@
 {
   "collectionName": "components_brunch_about_uses",
   "info": {
-    "displayName": "about-us",
-    "description": ""
+    "displayName": "About us"
   },
   "options": {},
   "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
     "main_image": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ]
-    },
-    "title": {
-      "type": "string"
-    },
-    "description": {
-      "type": "richtext"
+      ],
+      "type": "media",
+      "multiple": false
     },
     "image_1": {
       "allowedTypes": [

@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "site_menus",
+  "info": {
+    "singularName": "site-menu",
+    "pluralName": "site-menus",
+    "displayName": "Site menu"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}
