@@ -29,17 +29,6 @@ export interface BrunchInspiration extends Schema.Component {
   };
 }
 
-export interface BrunchLogo extends Schema.Component {
-  collectionName: 'components_brunch_logos';
-  info: {
-    displayName: 'Logo';
-    description: '';
-  };
-  attributes: {
-    logo: Attribute.Media;
-  };
-}
-
 export interface BrunchMainSlider extends Schema.Component {
   collectionName: 'components_main_slider_main_sliders';
   info: {
@@ -109,7 +98,6 @@ declare module '@strapi/types' {
     export interface Components {
       'brunch.about-us': BrunchAboutUs;
       'brunch.inspiration': BrunchInspiration;
-      'brunch.logo': BrunchLogo;
       'brunch.main-slider': BrunchMainSlider;
       'brunch.menu': BrunchMenu;
       'brunch.reservations': BrunchReservations;

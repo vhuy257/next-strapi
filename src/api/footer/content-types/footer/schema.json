@@ -12,12 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "logo": {
-      "displayName": "Logo",
-      "type": "component",
-      "repeatable": false,
-      "component": "brunch.logo"
-    },
     "subscribe_text": {
       "type": "blocks"
     },
