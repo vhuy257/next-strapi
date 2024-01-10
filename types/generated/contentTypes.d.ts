@@ -774,6 +774,7 @@ export interface ApiConfigConfig extends Schema.SingleType {
     singularName: 'config';
     pluralName: 'configs';
     displayName: 'Config';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -781,6 +782,10 @@ export interface ApiConfigConfig extends Schema.SingleType {
   attributes: {
     logo: Attribute.Media;
     logo_dark: Attribute.Media;
+    phone: Attribute.String;
+    email: Attribute.String;
+    address: Attribute.String;
+    country: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -858,10 +863,6 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
     origin_inspiration: Attribute.Component<'brunch.inspiration'>;
     menu: Attribute.Component<'brunch.menu'>;
     rerservations: Attribute.Component<'brunch.reservations'>;
-    get_in_touch_phone: Attribute.String;
-    get_in_touch_email: Attribute.String;
-    find_us_address: Attribute.String;
-    find_us_country: Attribute.String;
     testimonials: Attribute.Relation<
       'api::home-page.home-page',
       'oneToMany',

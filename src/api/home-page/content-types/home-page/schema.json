@@ -35,18 +35,6 @@
       "repeatable": false,
       "component": "brunch.reservations"
     },
-    "get_in_touch_phone": {
-      "type": "string"
-    },
-    "get_in_touch_email": {
-      "type": "string"
-    },
-    "find_us_address": {
-      "type": "string"
-    },
-    "find_us_country": {
-      "type": "string"
-    },
     "testimonials": {
       "type": "relation",
       "relation": "oneToMany",

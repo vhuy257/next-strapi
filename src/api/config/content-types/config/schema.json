@@ -4,7 +4,8 @@
   "info": {
     "singularName": "config",
     "pluralName": "configs",
-    "displayName": "Config"
+    "displayName": "Config",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,24 +13,38 @@
   "pluginOptions": {},
   "attributes": {
     "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "logo_dark": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
     }
   }
 }
