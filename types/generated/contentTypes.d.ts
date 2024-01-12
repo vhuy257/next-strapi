@@ -920,12 +920,48 @@ export interface ApiHomePageSlideHomePageSlide extends Schema.CollectionType {
   };
 }
 
+export interface ApiMenuCategoryMenuCategory extends Schema.CollectionType {
+  collectionName: 'menu_categories';
+  info: {
+    singularName: 'menu-category';
+    pluralName: 'menu-categories';
+    displayName: 'Menu Food category';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    menus_items: Attribute.Relation<
+      'api::menu-category.menu-category',
+      'oneToMany',
+      'api::menu-item.menu-item'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::menu-category.menu-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::menu-category.menu-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiMenuItemMenuItem extends Schema.CollectionType {
   collectionName: 'menu_items';
   info: {
     singularName: 'menu-item';
     pluralName: 'menu-items';
-    displayName: 'Menus item';
+    displayName: 'Menu Food item';
     description: '';
   };
   options: {
@@ -935,6 +971,11 @@ export interface ApiMenuItemMenuItem extends Schema.CollectionType {
     title: Attribute.String;
     description: Attribute.RichText;
     price: Attribute.Decimal;
+    menu_category: Attribute.Relation<
+      'api::menu-item.menu-item',
+      'manyToOne',
+      'api::menu-category.menu-category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -946,6 +987,43 @@ export interface ApiMenuItemMenuItem extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::menu-item.menu-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiReservationReservation extends Schema.CollectionType {
+  collectionName: 'reservations';
+  info: {
+    singularName: 'reservation';
+    pluralName: 'reservations';
+    displayName: 'Reservation';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    email: Attribute.String;
+    phone: Attribute.String;
+    type_of_event: Attribute.String;
+    number_of_guest: Attribute.String;
+    date_of_event: Attribute.Date;
+    description: Attribute.Blocks;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::reservation.reservation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::reservation.reservation',
       'oneToOne',
       'admin::user'
     > &
@@ -1039,7 +1117,9 @@ declare module '@strapi/types' {
       'api::footer.footer': ApiFooterFooter;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::home-page-slide.home-page-slide': ApiHomePageSlideHomePageSlide;
+      'api::menu-category.menu-category': ApiMenuCategoryMenuCategory;
       'api::menu-item.menu-item': ApiMenuItemMenuItem;
+      'api::reservation.reservation': ApiReservationReservation;
       'api::site-menu.site-menu': ApiSiteMenuSiteMenu;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
     }

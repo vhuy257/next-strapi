@@ -4,7 +4,7 @@
   "info": {
     "singularName": "menu-item",
     "pluralName": "menu-items",
-    "displayName": "Menus item",
+    "displayName": "Menu Food item",
     "description": ""
   },
   "options": {
@@ -20,6 +20,12 @@
     },
     "price": {
       "type": "decimal"
+    },
+    "menu_category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::menu-category.menu-category",
+      "inversedBy": "menus_items"
     }
   }
 }
