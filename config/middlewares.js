@@ -16,8 +16,8 @@ module.exports = [
         useDefaults: true,
         directives: {
           'connect-src': ["'self'", 'https:'],
-          'img-src': ["'self'", 'data:', 'blob:', 'res.cloudinary.com'],
-          'media-src': ["'self'", 'data:', 'blob:', 'res.cloudinary.com'],
+          'img-src': ["'self'", 'data:', 'blob:', 'res.cloudinary.com', 'trusty-desk-8c3c7017fe.strapiapp.com'],
+          'media-src': ["'self'", 'data:', 'blob:', 'res.cloudinary.com', 'trusty-desk-8c3c7017fe.strapiapp.com'],
           upgradeInsecureRequests: null,
         },
       },

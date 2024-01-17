@@ -1072,43 +1072,6 @@ export interface ApiOurMenuOurMenu extends Schema.SingleType {
   };
 }
 
-export interface ApiReservationReservation extends Schema.CollectionType {
-  collectionName: 'reservations';
-  info: {
-    singularName: 'reservation';
-    pluralName: 'reservations';
-    displayName: 'Reservation';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String;
-    email: Attribute.String;
-    phone: Attribute.String;
-    type_of_event: Attribute.String;
-    number_of_guest: Attribute.String;
-    date_of_event: Attribute.Date;
-    description: Attribute.Blocks;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::reservation.reservation',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::reservation.reservation',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiSiteMenuSiteMenu extends Schema.CollectionType {
   collectionName: 'site_menus';
   info: {
@@ -1199,7 +1162,6 @@ declare module '@strapi/types' {
       'api::menu-category.menu-category': ApiMenuCategoryMenuCategory;
       'api::menu-item.menu-item': ApiMenuItemMenuItem;
       'api::our-menu.our-menu': ApiOurMenuOurMenu;
-      'api::reservation.reservation': ApiReservationReservation;
       'api::site-menu.site-menu': ApiSiteMenuSiteMenu;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
     }
