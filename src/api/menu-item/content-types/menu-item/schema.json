@@ -26,6 +26,12 @@
       "relation": "manyToOne",
       "target": "api::menu-category.menu-category",
       "inversedBy": "menus_items"
+    },
+    "chef_recommend": {
+      "type": "boolean"
+    },
+    "original_taste": {
+      "type": "boolean"
     }
   }
 }

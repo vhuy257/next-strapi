@@ -1006,6 +1006,8 @@ export interface ApiMenuItemMenuItem extends Schema.CollectionType {
       'manyToOne',
       'api::menu-category.menu-category'
     >;
+    chef_recommend: Attribute.Boolean;
+    original_taste: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
